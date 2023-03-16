@@ -14,11 +14,17 @@ void func(T1 param1, T2 param2)
     cout << "Masukan Anda: " << param1 << " dan " << param2 << ", mungkin memiliki tipe yang berbeda" << endl;
 }
 
-template <>
+template <char, int>
 void func(char param1, int param2)
 {
     for (int i = 0; i < param2; i++)
     {
         cout << param1 << endl;
     }
+}
+
+int main()
+{
+    func('a', 3);
+    func("1", '2');
 }
