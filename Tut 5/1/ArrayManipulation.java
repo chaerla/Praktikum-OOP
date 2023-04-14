@@ -33,11 +33,18 @@ class ArrayManipulation {
      */
     public static <T extends Comparable<T>> T[] mergeAndSortArrays(T[] arr1, T[] arr2) {
         T[] ret = Arrays.copyOf(arr1, arr1.length + arr2.length);
-        System.arraycopy(arr2, 0, ret, arr1.length, arr2.length);
+        List<T> ret2 = new ArrayList<T>();
+        for (T t : arr1) {
+            ret2.add(t);
+        }
+        for (T t : arr2) {
+            ret2.add(t);
+        }
+        // System.arraycopy(arr2, 0, ret, arr1.length, arr2.length);
 
-        Arrays.sort(ret);
+        // Arrays.sort(ret);
 
-        return ret;
+        return ret2.toArray(Arrays.copyOf(arr1, 0));
     }
 
     /**
